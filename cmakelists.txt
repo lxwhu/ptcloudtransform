@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.10)
+#project name  
+PROJECT(ptcloudtransform)
+#head file path  
+INCLUDE_DIRECTORIES(  
+    /Users/admin/Documents/code/baselib/include
+    /Users/admin/Documents/code/pointcloud/include
+)  
+LINK_DIRECTORIES(
+    )
+#source directory  
+AUX_SOURCE_DIRECTORY(src SRC_LIST)  
+SET(ptcloud_transform ${SRC_LIST})
+
+SET(CMAKE_BUILD_TYPE "Debug")  
+ADD_DEFINITIONS(-DLINUX_iOS_64 -DLINUX_iOS -DLINUX)
+
+ADD_EXECUTABLE(ptcloudtransform ${ptcloud_transform})  
+  TARGET_LINK_LIBRARIES(ptcloudtransform gflags glog)
